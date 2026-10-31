@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import site from '../../site.config';
+---
+
+<BaseLayout title="Contact" description={`Send a message to ${site.name}.`}>
+  <script is:inline slot="head" src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <div class="wrap">
+    <h1>Contact</h1>
+    <p>Prefer to talk? Call <a href={`tel:${site.phone}`}>{site.phone}</a>.</p>
+
+    <form class="form" method="post" action="/api/contact">
+      <label>
+        Your name
+        <input name="name" type="text" required maxlength="100" autocomplete="name" />
+      </label>
+      <label>
+        Email
+        <input name="email" type="email" required maxlength="254" autocomplete="email" />
+      </label>
+      <label>
+        Message
+        <textarea name="message" required maxlength="3000" rows="6"></textarea>
+      </label>
+
+      <!-- Honeypot: hidden from people, tempting to bots. -->
+      <div class="hp" aria-hidden="true">
+        <label>Website <input name="website" type="text" tabindex="-1" autocomplete="off" /></label>
+      </div>
+
+      <div class="cf-turnstile" data-sitekey={site.turnstileSiteKey}></div>
+
+      <button class="btn" type="submit">Send message</button>
+      <p class="note">Please don't include card numbers, SSNs or other sensitive details in this form.</p>
+    </form>
+  </div>
+</BaseLayout>

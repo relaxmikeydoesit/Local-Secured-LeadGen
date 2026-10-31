@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../site.config';
+// TEMPLATE: edit this to match what the client's site actually does, then have it reviewed.
+// Keep it honest and specific: "what this site does and doesn't collect".
+---
+
+<BaseLayout title="Privacy" description={`What ${site.name}'s website does and doesn't collect.`}>
+  <div class="wrap">
+    <h1>Privacy</h1>
+
+    <h2>What this site collects</h2>
+    <ul>
+      <li>
+        <strong>Contact form:</strong> your name, email address and message, which are emailed to
+        {site.name}. The form is protected by Cloudflare Turnstile, which checks that you are a person.
+      </li>
+      <li>
+        <strong>Booking:</strong> the booking calendar on the Book page is provided by a third party and
+        loads only on that page. Whatever you enter there is handled by that provider under its own policy.
+      </li>
+    </ul>
+
+    <h2>What this site does not do</h2>
+    <ul>
+      <li>
+        It sets no cookies of its own and has no advertising or analytics scripts. The third-party
+        services on the Contact and Book pages (Turnstile and the booking provider) may use their own
+        cookies or storage under their own policies.
+      </li>
+      <li>It does not collect payment card details or government ID numbers.</li>
+    </ul>
+
+    <h2>Questions</h2>
+    <p>Email <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+  </div>
+</BaseLayout>

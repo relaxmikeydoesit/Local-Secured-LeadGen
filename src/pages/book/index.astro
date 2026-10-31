@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import site from '../../site.config';
+
+// Verify your booking provider allows being embedded in an iframe, and keep its origin
+// in `frame-src` in public/_headers. Payment details are entered on the provider's page only.
+const embedUrl = `${site.bookingUrl}?embed=true`;
+---
+
+<BaseLayout title="Book" description={`Book an appointment with ${site.name}.`}>
+  <div class="wrap">
+    <h1>Book an appointment</h1>
+    <iframe
+      class="embed"
+      src={embedUrl}
+      title="Booking calendar"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+    ></iframe>
+    <p class="note">
+      Calendar not loading? <a href={site.bookingUrl} rel="noopener noreferrer">Open the booking page directly</a>.
+    </p>
+  </div>
+</BaseLayout>

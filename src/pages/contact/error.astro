@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import site from '../../site.config';
+---
+
+<BaseLayout title="Message not sent" noindex>
+  <div class="wrap">
+    <h1>Sorry, that didn't go through</h1>
+    <p>
+      Please check the form and <a href="/contact/">try again</a>, or email
+      <a href={`mailto:${site.email}`}>{site.email}</a>.
+    </p>
+  </div>
+</BaseLayout>

@@ -1,0 +1,10 @@
+# Copy to .dev.vars for local `npx wrangler pages dev dist`.
+# In production set these as encrypted secrets in the Cloudflare Pages project, never in git.
+
+# Cloudflare's always-passes TEST secret. Replace with the real secret per client.
+TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA
+
+# Email delivery through Resend (swap the fetch in functions/api/contact.js for another provider if you prefer).
+RESEND_API_KEY=
+CONTACT_TO=owner@example.com
+CONTACT_FROM=Website <no-reply@your-verified-domain.example>
