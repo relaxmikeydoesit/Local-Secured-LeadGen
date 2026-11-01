@@ -78,7 +78,7 @@ jobs:
     # Only run active/passive scans against the preview of THIS repo, never third-party sites.
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: dist
           path: dist
